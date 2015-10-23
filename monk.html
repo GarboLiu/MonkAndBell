@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Monk</title>
+	<meta charset="utf-8"/>
+	<style>
+	.wrapper{font-size:200%;}
+	.monk{position: relative;margin-left: 4em;}
+	.monk .head{
+		position: relative;
+		width: 7em;
+		height: 8.5em;
+		background: radial-gradient( #ecc3ab 60%, #e5a798 );
+		box-shadow: 0 .6em .2em -.5em rgba(0,0,0,.4);
+		border-radius: 50% 50% 50% 50% /35% 35% 30% 30%;
+		border: 1px solid #bc896c;
+		/*transform: rotate(20deg);*/
+	}
+	.eyebrow>div{
+		width:.9em; 
+         height:.06em; 
+         border-radius:50% 50% 0 0 /100% 100% 0 0; 
+         border-top: .1em solid black;
+         position:absolute; 
+         top:3.5em; 
+	}
+	.eye>div{
+		width: .65em;
+		height: .65em;
+		border-radius: 50%;
+		background: #000;
+		position: absolute;
+		top: 4.5em;
+	}
+	.eyebrow>div:nth-child(1){
+		left: 1em;
+		transform: rotate(-5deg);
+	}	
+	.eyebrow>div:nth-child(2){
+		right: 1em;
+		transform: rotate(5deg);
+	}
+	.nose{
+		width: .24em;
+		height: .1em;
+		position: absolute;
+		background: #000;
+		border-radius: 40% 40% 0 0 /100% 100% 0 0;
+		top: 5.3em;
+		left: 3.38em;
+	}
+	.l1{
+		left: 1.2em;	
+	}
+	.r1{
+		right: 1.2em;
+	}
+	.mouth{
+		 width:2em; 
+         height:.4em; 
+         /*background: #8d3f33;*/
+         border-bottom: .1em solid #8d3f33;
+         border-radius: 0 0 60% 60%/ 0 0 100% 100%;
+         position:absolute; 
+         top:6em; 
+         left:2.5em; 
+         position: relative;
+	}
+	.mouth:after{
+		content: '';
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: .15em;
+		background: #ecc3ab;
+
+	}
+	.blusher>div {
+		width: .1em;
+		height: .1em;
+		border-radius: 50%;
+		background: #e5a798;
+		box-shadow: 0 0 1.2em .9em #e5a798;
+		position: absolute;
+		top: 6.2em;
+	}
+	.ear>div{
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index: -1;
+	}
+	.ear>div:nth-child(1){
+		top: 4em;
+		left: -.8em;
+		border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+		box-shadow: .3em 0 .3em #e8b5a9 inset;
+		transform: rotate(-10deg);
+	}	
+	.ear>div:nth-child(2){
+		top: 4em;
+		right: -.8em;
+		border-radius: 0 100% 100% 0/  0 50% 70% 0;
+		box-shadow: -.3em 0 .3em #e8b5a9 inset;
+		transform: rotate(10deg);
+	}
+
+	.bodys{
+		width: 5em;
+		height: 6em;
+		background: #e8b5a9;
+		border-radius: 30% 30% 0 0/ 40% 40% 0 0;
+		left: 1em;
+		top: 8.7em;
+		position: absolute;
+	}
+	.bodys::before{
+		content: '';
+		top: -.3em; left: 1.8em; right: 1.8em; bottom: 6em;
+		background: #e8b5a9;
+		position: absolute;
+	}
+	</style>
+</head> 
+<body>
+<div class="wrapper">
+	<div class="monk">
+		<div class="head">
+			<div class="eyebrow">
+				<div></div>
+				<div></div>
+			</div>
+			<div class="eye">
+				<div class="l1"></div>
+				<div class="r1"></div>
+			</div>
+			<div class="nose"></div>
+			<div class="mouth"></div>
+			<div class="blusher">
+				<div class="l1"></div>
+				<div class="r1"></div>
+			</div>
+			<div class="ear">
+				<div></div>
+				<div></div>
+			</div>
+		</div>
+		<div class="bodys">
+			
+		</div>
+		<div class="foot"></div>
+	</div>
+</div>
+</body>
+</html>
