@@ -6,15 +6,43 @@
 	<style>
 	.wrapper{font-size:200%;}
 	.monk{position: relative;margin-left: 4em;}
+	.monk .head_div{position: absolute;/*transform: rotate(20deg);*/z-index: 15;}
 	.monk .head{
-		position: relative;
+		position: absolute;
 		width: 7em;
 		height: 8.5em;
 		background: radial-gradient( #ecc3ab 60%, #e5a798 );
 		box-shadow: 0 .6em .2em -.5em rgba(0,0,0,.4);
 		border-radius: 50% 50% 50% 50% /35% 35% 30% 30%;
 		border: 1px solid #bc896c;
-		/*transform: rotate(20deg);*/
+	}
+	.monk .head:after{
+		content: '';
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index:-1;
+		top: 4em;
+		left: -.8em;
+		border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+		box-shadow: .3em 0 .3em #e8b5a9 inset;
+		transform: rotate(-10deg);
+	}	
+	.monk .head:before{
+		content: '';
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index:-1;
+		top: 4em;
+		right: -.8em;
+		border-radius: 0 100% 100% 0/  0 50% 70% 0;
+		box-shadow: -.3em 0 .3em #e8b5a9 inset;
+		transform: rotate(10deg);
 	}
 	.eyebrow>div{
 		width:.9em; 
@@ -87,8 +115,8 @@
 		height: 1.8em;
 		background: #ecc3ab;
 		border: 1px solid #bc896c;
-		position: absolute;
-		z-index: -1;
+		/*position: absolute;*/
+		z-index:-10;
 	}
 	.ear>div:nth-child(1){
 		top: 4em;
@@ -106,26 +134,101 @@
 	}
 
 	.bodys{
-		width: 5em;
+		width: 6em;
 		height: 6em;
 		background: #e8b5a9;
-		border-radius: 30% 30% 0 0/ 40% 40% 0 0;
-		left: 1em;
-		top: 8.7em;
+		border-radius: 30% 30% 2% 2%/ 20% 20% 2% 2%;
+		left: 0.5em;
+		top: 8.4em;
+		z-index: 10;
+		border-bottom: 1px solid #5a5a5a;
 		position: absolute;
+		background: linear-gradient(-45deg, #727471 60%, #5a5a5a 0, #5a5a5a 60.3%, #717271 0, #717271 70%, #5a5a5a 0, #5a5a5a 70.4%,transparent 0),linear-gradient(-135deg, #e8b5a9 30%, #5a5a5a 0, #5a5a5a 30.3%, #717271 0, #717271 40%,#5a5a5a 0, #5a5a5a 40.3%,#727471 0);
 	}
-	.bodys::before{
-		content: '';
-		top: -.3em; left: 1.8em; right: 1.8em; bottom: 6em;
-		background: #e8b5a9;
+	.arms div{
 		position: absolute;
+		width: 2em;
+		height: 5.7em;
+		z-index: 15;
+		/*background: rgba(0,0,0,.5);*/
+		/*background: #727471;*/
+		
+	}
+	.arms .l1{
+		left: -.8em;
+		top: .2em;
+		border-radius: 100% 0  0 20%/ 80% 0  0 2%;
+		transform: rotate(10deg);  
+		transform-origin: right top;
+		background:linear-gradient(transparent 40%, #5a5a5a 0) no-repeat right, linear-gradient(#727471, #727471) left;
+		background-size: 1.5px 100%, 100% 100%;
+	}	
+	.arms .r1{
+		left: 4.8em;
+		top: .2em;
+		border-radius: 0 100%  20% 0 / 0 80% 3% 0;
+		transform: rotate(-10deg); 
+		transform-origin: left top; 
+		/*background:linear-gradient(140deg, transparent 3%, #727471 0) ;*/
+		background:linear-gradient(transparent 40%, #5a5a5a 0) no-repeat left, linear-gradient(#727471, #727471) right;
+		background-size: 1.5px 100%, 100% 100%;
+	}
+	.arms .l1::before, .arms .r1::before{
+		content: '';
+		position: absolute;
+		width: 1.5em;
+		height: 1.1em;
+		background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+		border-radius:0 0 60% 60%/0 0 60% 60%;
+		z-index: -20;
+	}
+	.arms .l1:before{
+		left: .35em;
+		top: 5.6em;	
+	}	
+	.arms .r1:before{
+		left: .35em;
+		top: 5.6em;
+	} 
+	.leg{z-index: 9;}
+	.leg div{
+		width: 2.7em;
+		height: 2em;
+		background: #727471;
+		position: absolute;
+		border-radius: 0 0 20% 20% / 0 0 100% 100%;
+		border: 1px solid #5a5a5a;
+		top: 13.8em;
+	}
+	.leg .l1{
+		left: .8em;
+	}	
+	.leg .r1{
+		left: 3.4em;
+	}
+	.foot{z-index: 6;position: relative;}
+	.foot div{
+		width: 2.2em;
+		height: .5em;
+		background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+		position: absolute;
+		top: 15.8em;
+	}
+	.foot .l1{
+		left: .8em;
+		border-radius: 60% 0 20% 5% / 80% 0 70% 20%;
+	}	
+	.foot .r1{
+		left: 3.9em;
+		border-radius: 0 60% 5% 20% / 0 80% 20% 70%;
 	}
 	</style>
 </head> 
 <body>
 <div class="wrapper">
 	<div class="monk">
-		<div class="head">
+		<div class="head_div">
+			<div class="head">
 			<div class="eyebrow">
 				<div></div>
 				<div></div>
@@ -140,15 +243,25 @@
 				<div class="l1"></div>
 				<div class="r1"></div>
 			</div>
-			<div class="ear">
-				<div></div>
-				<div></div>
-			</div>
+		</div>
 		</div>
 		<div class="bodys">
-			
+			<div class="arms">
+				<div class="l1">
+				</div>
+				<div class="r1">
+				</div>
+			</div>
 		</div>
-		<div class="foot"></div>
+		<div class="foot">
+			<div class="l1"></div>
+			<div class="r1"></div>
+		</div>
+		<div class="leg">
+			<div class="l1"></div>
+			<div class="r1"></div>
+		</div>
+
 	</div>
 </div>
 </body>
