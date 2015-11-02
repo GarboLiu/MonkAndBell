@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Bell</title>
+	<style>
+	.wrapper{
+		font-size: 200%
+	}
+	.bell {
+		position: relative;
+		margin-left: 200px;
+		width:4em;
+	}
+	.bell .rope{
+		width: .25em;
+		height: 6em;
+		background: repeating-linear-gradient(45deg, 
+              #92530e, #92530e .1em,
+              #c48840 0, #c48840 .7em);
+		border-radius: 20%;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -.125em;
+	}
+	.bell .body{
+		width: 4em;
+		height: 5em;
+		background: #000;
+		background: linear-gradient(90deg, #4c5689, #a3c0ea, #d6e1f3);
+		border-radius: 95% 95% 100% 100%/ 80% 80% 10% 10%;
+		position: absolute;
+		top: 6.4em;
+	}
+	.bell .body::before{
+		content: '';
+		width: 1.6em;
+		height: 1em;
+		background: transparent;
+		top: -.77em;
+		position: absolute;
+		left: 50%;
+		margin-left: -.8em;
+		border-radius: 50% 50% 0 0 / 100% 100% 0 0 ;
+		border: .3em solid #b0c9f1;
+		border-bottom: none;
+		box-sizing:border-box;
+		z-index: -1;
+	}
+	.bell .body::after{
+		content: '';
+		width: .35em;
+		height: .4em;
+		background: #c48840;
+		position: absolute;
+		top: -.75em;
+		left: 50%;
+		margin-left: -.175em;
+		border-radius: 30% 30% 40% 40%;
+	}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="bell">
+			<div class="rope"></div>
+			<div class="body"></div>
+		</div>
+	</div>
+</body>
+</html>
