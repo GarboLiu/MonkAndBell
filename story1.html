@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>小沙弥的故事1</title>
+	<meta charset="utf-8"/>
+
+</head>
+<body>
+	<div id="typewriter">dfd</div>
+	<script>
+	var words = "我与他认识于5年前， 我在山这头，他在山那头，在山与山间是条清澈的小河，我们总会在早上挑水时相遇。"
+	var x = 0;
+	var speed = 150;
+	var flag = true;
+	function typewrite() {
+		var m = words;
+		var typewriter = $_id("typewriter");
+		typewriter.innerHTML = m.substring(0, x++)+'_';
+		if(x === m.length + 1){
+			x = m.length;
+			setInterval(function(){
+				flag?typewriter.innerHTML= m.substring(0, x++) : typewriter.innerHTML = m.substring(0, x++)+'_';
+				flag = !flag;
+			}, speed*2);
+		}else{
+			timer = setTimeout('typewrite()', speed);
+		}
+	}
+	function $_id(id){
+		return document.getElementById(id);
+	}
+	typewrite();
+	</script>
+</body>
+</html>
