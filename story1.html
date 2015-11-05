@@ -3,13 +3,15 @@
 <head>
 	<title>小沙弥的故事1</title>
 	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
 	<style>
 	*{box-sizing:border-box;}
 	body{
 		/*font-size:16px;*/
 		min-height: 100vh;
 		margin: 0;
-		font-size: 400%;	
+		font-size: 130%;	
 	}
 	.wrapper{width:100%; height:100vh; background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #ECF9FF 0, #D3EAF6 75vh, #BAE9FF);overflow: hidden;}
 
@@ -142,22 +144,24 @@
 		text-indent: 1.6em;
 		z-index: 20;
 		/*border-radius: .3em 3em .3em 80% / .3em .3em .3em 100%;*/
-		padding: .5em 0;
-		font-size: 90%;
+		padding: .5em;
+		font-size: 80%;
 		line-height: 1.6;
 	}
 	.people{
 		position: absolute;
 		width: 2em;
 		height: 8em;
-		font-size: 60%;
+		font-size: 20%;
 		bottom: 18vh;
+		z-index: 11;
 	}
 	.people .head{
 		width: 2em;
 		height: 2em;
 		border: .2em solid black;
 		border-radius: 50%;
+		line-height: 1.5;
 		padding: .3em;
 		z-index: 5;
 		background: #fff;
@@ -204,13 +208,48 @@
 	}
 	.me{
 		left: 50%;
-		margin-left: -7.5em;
-		margin-bottom: 14em;
+		margin-left: -15em;
+		margin-bottom: -3em;
+		/*animation: meShow 13s ease-out;*/
 	}
 	.he{
 		left: 50%;
-		margin-left: 5.6em;
-		margin-bottom: 13.6em;
+		margin-bottom: -4.5em;
+		margin-left: -3em;
+		/*animation: heShow 13s ease-out;*/
+	}
+	.dialog{
+		padding: .3em;
+		font-size: 80%;
+		width: auto;
+		max-width: 60%;
+		border-radius: .5em;
+		background: #fff;
+		border: .1em solid black;
+		position: absolute;
+		z-index: 30;
+	}
+	.dialog::before{
+		content: '';
+		position: absolute;
+		bottom: -1em;
+		left: .8em;
+		border: .5em solid black;
+		border-color: #000 transparent transparent transparent;
+	}
+	.dialog::after{
+		content: '';
+		position: absolute;
+		bottom: -.9em;
+		left: .8em;
+		border: .5em solid black;
+		border-color: #fff transparent transparent transparent;		
+	}
+	.meDialog{
+		bottom: 18vh;
+		margin-bottom: 3.5em;
+		left: 50%; margin-left: -9em;
+
 	}
 @-webkit-keyframes sun { 
 	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
@@ -235,7 +274,20 @@
 @keyframes moveFromTop{
 	from { -webkit-transform: translateY(-100%); transform: translateY(-100%); }
 }
-
+@keyframes meShow{
+	from {opacity: 0;margin-left: -10em;}
+	85%{opacity: 0;margin-left: -10em;}
+	90%{opacity: 1;margin-bottom: 16em;margin-left: -10em;}
+	95%{opacity: 1;margin-bottom: 16em;margin-left: -15em;}
+	100%{margin-bottom: -4em;}
+	
+}
+@keyframes heShow{
+	from {opacity: 0;left: 50%;margin-left: 8em;}
+	85%{opacity: 0;margin-left: 8em;}
+	90%{opacity: 1;margin-bottom: 16em;margin-left: 8em;}
+	95%{margin-bottom: -4.5em;margin-left: 8em;}
+}
 
 	</style>
 </head>
@@ -277,11 +329,14 @@
 			<div class="right"></div>
 		</div>
 	</div>
+	<div class="dialog meDialog">Hi~早上好</div>
+	<div class="dialog heDialog">Hi~今天这么早啊</div>
 	<div id="typewriter" class="typewriter"></div>
 </div>
 	
 	<script>
-	var words = "我与他认识于5年前， 我在山这头，他在山那头，山与山间是条清澈的小河，我们总会在早上挑水时相遇。"
+	var preface = "第一讲这是个关于纯洁友谊，也是个有点‘悲伤’的小故事。"
+	var words = "我与他认识于5年前， 我在这山头，他在那山头，山与山间是条清澈的小河，我们总会在早上挑水时相遇。"
 	var x = 0;
 	var speed = 170;
 	var flag = true;
@@ -299,10 +354,13 @@
 			timer = setTimeout('typewrite()', speed);
 		}
 	}
+	var dialog = ['今天练什么拳啦','太极，你们咧','我在撞钟呀，哈哈','...','...'];
+	var part2_words = "五年来，风雨无阻，我们总会在这里见面，天南地北地聊着，可是，突然有一天..."
 	function $_id(id){
 		return document.getElementById(id);
 	}
 	setTimeout('typewrite()', 2000);
 	</script>
+
 </body>
 </html>
