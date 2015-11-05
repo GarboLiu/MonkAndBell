@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>火柴人</title>
+	<style>
+	*{box-sizing:border-box;}
+		.wrapper{font-size: 100%;}
+		.people{
+			position: relative;
+			width: 2em;
+			height: 8em;
+		}
+		.people .head{
+			width: 2em;
+			height: 2em;
+			border: .2em solid black;
+			border-radius: 50%;
+			padding: .3em;
+			z-index: 5;
+			background: #fff;
+		}
+		.people .body{
+			width: .1em;
+			height: 2em;
+			border-right: .2em solid black;
+			position: absolute;
+			top: 2em;
+			left: .8em;
+		}
+		.people .hand div{
+			width: .1em;
+			height: 2em;
+			border-right: .2em solid black;
+			position: absolute;
+			top: 2.5em;
+			left: .8em;
+			transform-origin: .1em 0;
+		}
+		.people .hand .right{
+			transform: rotate(45deg);
+		}
+		.people .hand .left{
+			top: 2.3em;
+			transform: rotate(-70deg);
+			z-index: -1;
+		}		
+		.people .foot div{
+			width: .1em;
+			height: 2em;
+			border-right: .2em solid black;
+			position: absolute;
+			top: 4em;
+			left: .8em;
+			transform-origin: .1em 0;
+		}
+		.people .foot .right{
+			transform: rotate(45deg);
+		}
+		.people .foot .left{
+			top: 4.3em;
+			transform: rotate(-60deg);
+			z-index: -1;
+		}
+	</style>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="people">
+			<div class="head">我</div>
+			<div class="body"></div>
+			<div class="hand">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			<div class="foot">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
