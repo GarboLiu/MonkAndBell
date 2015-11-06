@@ -13,8 +13,10 @@
 		margin: 0;
 		font-size: 130%;	
 	}
-	.wrapper{width:100%; height:100vh; background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #ECF9FF 0, #D3EAF6 75vh, #BAE9FF);overflow: hidden;}
-
+	.wrapper{width:100%; overflow: hidden;}
+	.part1{
+		height:100vh; background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #ECF9FF 0, #D3EAF6 75vh, #BAE9FF);
+	}
 
 	.sun{
 	    -webkit-animation: sun 15s linear infinite; 
@@ -208,21 +210,22 @@
 	}
 	.me{
 		left: 50%;
-		margin-left: -15em;
+		margin-left: -12em;
 		margin-bottom: -3em;
-		/*animation: meShow 13s ease-out;*/
+		animation: meShow 13s ease-out;
 	}
 	.he{
 		left: 50%;
 		margin-bottom: -4.5em;
 		margin-left: -3em;
-		/*animation: heShow 13s ease-out;*/
+		animation: heShow 13s ease-out;
 	}
 	.dialog{
 		padding: .3em;
 		font-size: 80%;
 		width: auto;
 		max-width: 60%;
+		min-width: 2.2em;
 		border-radius: .5em;
 		background: #fff;
 		border: .1em solid black;
@@ -247,10 +250,19 @@
 	}
 	.meDialog{
 		bottom: 18vh;
-		margin-bottom: 3.5em;
+		margin-bottom: 4.5em;
 		left: 50%; margin-left: -9em;
-
+	}	
+	.heDialog{
+		bottom: 18vh;
+		margin-bottom: 3.5em;
+		left: 50%; margin-left: -3em;
 	}
+	.btn{
+		width: 5em;
+		height: 5em;
+	}
+	.dn{display: none;}
 @-webkit-keyframes sun { 
 	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
 	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
@@ -277,15 +289,15 @@
 @keyframes meShow{
 	from {opacity: 0;margin-left: -10em;}
 	85%{opacity: 0;margin-left: -10em;}
-	90%{opacity: 1;margin-bottom: 16em;margin-left: -10em;}
-	95%{opacity: 1;margin-bottom: 16em;margin-left: -15em;}
+	90%{opacity: 1;margin-bottom: 12em;margin-left: -10em;}
+	95%{opacity: 1;margin-bottom: 12em;margin-left: -13em;}
 	100%{margin-bottom: -4em;}
 	
 }
 @keyframes heShow{
 	from {opacity: 0;left: 50%;margin-left: 8em;}
 	85%{opacity: 0;margin-left: 8em;}
-	90%{opacity: 1;margin-bottom: 16em;margin-left: 8em;}
+	90%{opacity: 1;margin-bottom: 12em;margin-left: 8em;}
 	95%{margin-bottom: -4.5em;margin-left: 8em;}
 }
 
@@ -293,45 +305,50 @@
 </head>
 <body>
 <div class="wrapper">
-	<div class="sun"></div>
-	<div class="clouds">
-		<div class="cloud2"></div>
-		<div class="cloud3"></div>
+	<div class="part1" id="part1">
+		<div class="sun"></div>
+		<div class="clouds">
+			<div class="cloud2"></div>
+			<div class="cloud3"></div>
+		</div>
+		<div class="mountain mountain1">
+			<div class="temple"></div>
+		</div>	
+		<div class="mountain mountain2">
+			<div class="temple"></div>
+		</div>
+		<div class="river"></div>
+		<div class="people me">
+			<div class="head">我</div>
+			<div class="body"></div>
+			<div class="hand">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			<div class="foot">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+		</div>	
+		<div class="people he">
+			<div class="head">他</div>
+			<div class="body"></div>
+			<div class="hand">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+			<div class="foot">
+				<div class="left"></div>
+				<div class="right"></div>
+			</div>
+		</div>
+		<div class="dialog meDialog dn" id="meDialog"></div>
+		<div class="dialog heDialog dn" id="heDialog"></div>
+		<div id="typewriter" class="typewriter"></div>	
 	</div>
-	<div class="mountain mountain1">
-		<div class="temple"></div>
-	</div>	
-	<div class="mountain mountain2">
-		<div class="temple"></div>
+	<div class="part2" id="part2">
+		
 	</div>
-	<div class="river"></div>
-	<div class="people me">
-		<div class="head">我</div>
-		<div class="body"></div>
-		<div class="hand">
-			<div class="left"></div>
-			<div class="right"></div>
-		</div>
-		<div class="foot">
-			<div class="left"></div>
-			<div class="right"></div>
-		</div>
-	</div>	
-	<div class="people he">
-		<div class="head">他</div>
-		<div class="body"></div>
-		<div class="hand">
-			<div class="left"></div>
-			<div class="right"></div>
-		</div>
-		<div class="foot">
-			<div class="left"></div>
-			<div class="right"></div>
-		</div>
-	</div>
-	<div class="dialog meDialog">Hi~早上好</div>
-	<div class="dialog heDialog">Hi~今天这么早啊</div>
-	<div id="typewriter" class="typewriter"></div>
 </div>
 	
 	<script>
@@ -343,23 +360,49 @@
 	function typewrite() {
 		var m = words;
 		var typewriter = $_id("typewriter");
-		typewriter.innerHTML = m.substring(0, x++)+'_';
+		typewriter.innerHTML = m.substring(0, x++);
 		if(x === m.length + 1){
 			x = m.length;
-			setInterval(function(){
-				flag?typewriter.innerHTML= m.substring(0, x++) : typewriter.innerHTML = m.substring(0, x++)+'_';
-				flag = !flag;
-			}, speed*2);
 		}else{
 			timer = setTimeout('typewrite()', speed);
 		}
 	}
-	var dialog = ['今天练什么拳啦','太极，你们咧','我在撞钟呀，哈哈','...','...'];
-	var part2_words = "五年来，风雨无阻，我们总会在这里见面，天南地北地聊着，可是，突然有一天..."
+	var dialogWords = ['Hi~早上好','Hi~今天这么早啊','今天练什么拳啦','太极，你们咧','我在撞钟呀，哈哈','...','...'];
+	var dialogX = 0;
+	function showDialog(){
+		var m = dialogWords[dialogX];
+		var heDialog = $_id('heDialog');
+		var meDialog = $_id('meDialog');
+		if(dialogX < dialogWords.length){
+			if(dialogX%2 === 0){
+				meDialog.innerHTML = m;
+				meDialog.style.display = 'block';
+				heDialog.style.display = 'none';
+			}else{
+				heDialog.innerHTML = m;
+				heDialog.style.display = 'block';
+				meDialog.style.display = 'none';
+
+			}
+			dialogX++;
+			setTimeout('showDialog()', 2000);
+		}else{
+			heDialog.style.display = 'none';
+			meDialog.style.display = 'none';
+		}
+	}
+	setTimeout('showDialog()', 13600);
+	var part2_words = "五年来，风雨无阻，我们总会在挑水时，天南地北地聊着，可是，突然有一天..."
 	function $_id(id){
 		return document.getElementById(id);
 	}
 	setTimeout('typewrite()', 2000);
+
+	function showPart2(){
+		$_id('part1').style.display = 'none';
+		$_id('part2').style.display = 'block';
+	}
+	setTimeout('showPart2()', 30000)
 	</script>
 
 </body>
