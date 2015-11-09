@@ -4,265 +4,19 @@
 	<title>小沙弥的故事1</title>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-
+	<link href="css/part1.css" rel="stylesheet">
+	<link href="css/part2.css" rel="stylesheet">
 	<style>
-	*{box-sizing:border-box;}
-	body{
-		/*font-size:16px;*/
-		min-height: 100vh;
-		margin: 0;
-		font-size: 130%;	
-	}
-	.wrapper{width:100%; overflow: hidden;}
-	.part1{
-		height:100vh; background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #ECF9FF 0, #D3EAF6 75vh, #BAE9FF);
-	}
 
-	.sun{
-	    -webkit-animation: sun 15s linear infinite; 
-	        animation: sun 15s linear infinite;
-		position: absolute;
-		font-size: 90%;
-		top: 1vh;
-		left: 2.5em;
-		width: .8em;
-		height: 6.5em;
-		background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-	}
-	.sun::before{
-		content: '';
-		width: .8em;
-		height: 6.5em;
-		background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-		transform: rotate(90deg);
-		position: absolute;
-		top: 0;
-	}
-	.sun::after{
-		content: '';
-	    background: #FFEE44;
-	    width: 3.6em;
-	    height: 3.6em;
-	    position: absolute;
-	    top: 50%; left: 50%;
-	    margin-left: -1.8em;
-	    margin-top: -1.8em;
-	    border-radius: 50%;
-        box-shadow: rgba(255,255,0,0.3) 0 0 0 .5em;
-	}
-	.clouds{
-		font-size: 70%;
-	}
-	.cloud2{
-		width: 2.5em;
-		height: 2.5em;
-		background: #fff;
-		border-radius: 50%;
-		position: absolute;
-		font-size: 120%;
-		top: 5.8em;
-		left: -.4em;
-		box-shadow: rgba(0,0,0,.1) -.05em .05em 0,#FFF 1em -1.2em 0 .1em, #FFF 2.8em -.8em 0 -.2em, #FFF 4em -.3em 0 -.3em, #fff 1.6em .25em 0 .1em, #fff 3.3em .4em 0 -.5em;
-		z-index: 10;
-		animation: moveFromRight .7s cubic-bezier(.81,0,.43,1.39) both;
-	}	
-	.cloud3{
-		width: 2.5em;
-		height: 2.5em;
-		background: #fff;
-		border-radius: 50%;
-		position: absolute;
-		font-size: 110%;
-		top: 6.6em;
-		left: 3.5em;
-		box-shadow: rgba(0,0,0,.1) -.05em .05em 0,#FFF 1em -1.2em 0 .1em, #FFF 2.8em -.8em 0 -.2em, #FFF 4em -.3em 0 -.3em, #fff 1.6em .25em 0 .1em, #fff 3.3em .4em 0 -.5em;
-		z-index: 10;
-		animation: moveFromRight .6s cubic-bezier(.81,0,.43,1.39) both;
-	}
 
-	.mountain{
-		position: absolute;
-		left: 50%;
-		bottom: 18vh;
-		width: 5.2em;
-		height: 8em;
-		background: #9fd172;
-		border-radius: 40% 40% 5% 5% / 100% 100% 5% 5%;
-		box-shadow: .3em .3em 0 .3em #7ab42a inset,.6em .6em 0 .6em #86be41 inset, .9em .9em 0 .9em #8cc252 inset, 1.2em 1.2em 0 1.2em #9bcd6a inset, .4em .1em 0 -.1em rgba(0,0,0,.5);
-	}
-	.temple{
-		width: 1.3em;
-		height: .9em;
-		position: absolute;
-		background: linear-gradient(90deg, #fecfa0 30%, #ffeedd 0,#ffeedd 70%, #fecfa0 0);
-		position: absolute;
-		top: -.9em;
-		left: 50%;
-		margin-left: -.625em;
-	}
-	.temple::before{
-		content: '';
-		width: 2.5em;
-		height: 1.2em;
-		position: absolute;
-		top: -.55em;
-		left: 50%;
-		margin-left: -1.25em;
-		background:  radial-gradient(circle at top left,
-             transparent 50%, #f38230 0) top left,radial-gradient(circle at top right,
-             transparent 50%, #f38230 0) top right;
-		background-size: 52% 50%;
-		background-repeat: no-repeat;
-	}
-	.mountain1{
-		margin-left: -6.5em;
-		animation: moveFromRight .8s cubic-bezier(.81,0,.43,1.39) both;
-	}
-	.mountain2{
-		margin-left: 1.5em;
-		z-index: 10;
-		animation: moveFromLeft 1.2s cubic-bezier(.81,0,.43,1.39) both;
-	}
-	.river{
-		width: 5em;
-		height: 18vh;
-		position: absolute;
-		left: 50%;
-		margin-left: -3.2em;
-		bottom: 0;
-		opacity: 1;
-		border-radius: 80% 0 0 50% / 50% 0 0 50%;
-		box-shadow: -.6em 0 0 .5em #b7f8fd, -.7em 0 0 .6em #9ef9ff, -1em 0 0 .9em #93f5fb, -1.3em 0 0 1.2em #78f3fb, -1.5em 0 0 1.4em #6cedf6;
-		animation: riverShow 1.8s cubic-bezier(.81,0,.43,1.39) both;
 
-	}
-	.typewriter{
-		position: absolute;
-		width: 55vw;
-		height: 40vh;
-		top: 0;
-		left: 45vw;
-		/*background: rgba(0,0,0,.5);*/
-		text-indent: 1.6em;
-		z-index: 20;
-		/*border-radius: .3em 3em .3em 80% / .3em .3em .3em 100%;*/
-		padding: .5em;
-		font-size: 80%;
-		line-height: 1.6;
-	}
-	.people{
-		position: absolute;
-		width: 2em;
-		height: 8em;
-		font-size: 20%;
-		bottom: 18vh;
-		z-index: 11;
-	}
-	.people .head{
-		width: 2em;
-		height: 2em;
-		border: .2em solid black;
-		border-radius: 50%;
-		line-height: 1.5;
-		padding: .3em;
-		z-index: 5;
-		background: #fff;
-	}
-	.people .body{
-		width: .1em;
-		height: 2em;
-		border-right: .2em solid black;
-		position: absolute;
-		top: 2em;
-		left: .8em;
-	}
-	.people .hand div{
-		width: .1em;
-		height: 2em;
-		border-right: .2em solid black;
-		position: absolute;
-		top: 2.5em;
-		left: .8em;
-		transform-origin: .1em 0;
-	}
-	.people .hand .right{
-		transform: rotate(45deg);
-	}
-	.people .hand .left{
-		top: 2.3em;
-		transform: rotate(-70deg);
-	}		
-	.people .foot div{
-		width: .1em;
-		height: 2em;
-		border-right: .2em solid black;
-		position: absolute;
-		top: 4em;
-		left: .8em;
-		transform-origin: .1em 0;
-	}
-	.people .foot .right{
-		transform: rotate(45deg);
-	}
-	.people .foot .left{
-		top: 4.3em;
-		transform: rotate(-60deg);
-	}
-	.me{
-		left: 50%;
-		margin-left: -12em;
-		margin-bottom: -3em;
-		animation: meShow 13s ease-out;
-	}
-	.he{
-		left: 50%;
-		margin-bottom: -4.5em;
-		margin-left: -3em;
-		animation: heShow 13s ease-out;
-	}
-	.dialog{
-		padding: .3em;
-		font-size: 80%;
-		width: auto;
-		max-width: 60%;
-		min-width: 2.2em;
-		border-radius: .5em;
-		background: #fff;
-		border: .1em solid black;
-		position: absolute;
-		z-index: 30;
-	}
-	.dialog::before{
-		content: '';
-		position: absolute;
-		bottom: -1em;
-		left: .8em;
-		border: .5em solid black;
-		border-color: #000 transparent transparent transparent;
-	}
-	.dialog::after{
-		content: '';
-		position: absolute;
-		bottom: -.9em;
-		left: .8em;
-		border: .5em solid black;
-		border-color: #fff transparent transparent transparent;		
-	}
-	.meDialog{
-		bottom: 18vh;
-		margin-bottom: 4.5em;
-		left: 50%; margin-left: -9em;
-	}	
-	.heDialog{
-		bottom: 18vh;
-		margin-bottom: 3.5em;
-		left: 50%; margin-left: -3em;
-	}
-	.btn{
-		width: 5em;
-		height: 5em;
-	}
-	.dn{display: none;}
+/*转场动画*/
+.part1{
+	animation: small .2s ease-in 3s  normal forwards, fadeout-left .4s linear 3.3s normal forwards;
+}
+.part2{
+    animation: fadein-largen .4s ease-in 3.8s forwards ;
+}
 @-webkit-keyframes sun { 
 	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
 	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
@@ -300,8 +54,44 @@
 	90%{opacity: 1;margin-bottom: 12em;margin-left: 8em;}
 	95%{margin-bottom: -4.5em;margin-left: 8em;}
 }
+@keyframes small{
+	0%{
+		transform: scale(1);
+	}
+	100%{
+		transform: scale(.6);
+	}
+}
 
+@keyframes fadeout-left{
+	0%{
+		opacity: 1;
+	}
+	100%{
+		margin-left: -30%;
+		opacity: 0;
+	}
+}
+@keyframes largen{
+	0%{
+		transform: scale(.4);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
+@keyframes fadein-largen {
+    0% {
+        opacity: 0;
+        transform: scale(.4);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 	</style>
+
 </head>
 <body>
 <div class="wrapper">
@@ -347,7 +137,44 @@
 		<div id="typewriter" class="typewriter"></div>	
 	</div>
 	<div class="part2" id="part2">
-		
+		<div class="monk">
+			<div class="head_div">
+				<div class="head">
+				<div class="eyebrow">
+					<div></div>
+					<div></div>
+				</div>
+				<div class="eye">
+					<div class="l1"></div>
+					<div class="r1"></div>
+				</div>
+				<div class="nose"></div>
+				<div class="mouth"></div>
+				<div class="blusher">
+					<div class="l1"></div>
+					<div class="r1"></div>
+				</div>
+			</div>
+			</div>
+			<div class="bodys">
+				<div class="arms">
+					<div class="l1">
+					</div>
+					<div class="r1">
+					</div>
+				</div>
+			</div>
+			<div class="leg">
+				<div class="l1"></div>
+				<div class="r1"></div>
+			</div>
+			<div class="foot">
+				<div class="l1"></div>
+				<div class="r1"></div>
+			</div>
+		</div>
+		<div class="mountain"></div>
+		<div class="river"></div>
 	</div>
 </div>
 	
@@ -398,11 +225,11 @@
 	}
 	setTimeout('typewrite()', 2000);
 
-	function showPart2(){
-		$_id('part1').style.display = 'none';
-		$_id('part2').style.display = 'block';
-	}
-	setTimeout('showPart2()', 30000)
+	// function showPart2(){
+	// 	$_id('part1').style.display = 'none';
+	// 	$_id('part2').style.display = 'block';
+	// }
+	// setTimeout('showPart2()', 30000)
 	</script>
 
 </body>

@@ -1,0 +1,256 @@
+	.monk .head_div{position: absolute;transform: rotate(15deg);    transform-origin: 3.5em 8.5em;z-index: 15;}
+	.monk .head{
+		position: absolute;
+		width: 7em;
+		height: 8.5em;
+		background: radial-gradient( #ecc3ab 60%, #e5a798 );
+		box-shadow: 0 .6em .2em -.5em rgba(0,0,0,.4);
+		border-radius: 50% 50% 50% 50% /35% 35% 30% 30%;
+		border: 1px solid #bc896c;
+	}
+	.monk .head:after{
+		content: '';
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index:-1;
+		top: 4em;
+		left: -.8em;
+		border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+		box-shadow: .3em 0 .3em #e8b5a9 inset;
+		transform: rotate(-10deg);
+	}	
+	.monk .head:before{
+		content: '';
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index:-1;
+		top: 4em;
+		right: -.8em;
+		border-radius: 0 100% 100% 0/  0 50% 70% 0;
+		box-shadow: -.3em 0 .3em #e8b5a9 inset;
+		transform: rotate(10deg);
+	}
+	.eyebrow>div{
+		width:.9em; 
+         height:.06em; 
+         border-radius:50% 50% 0 0 /100% 100% 0 0; 
+         border-top: .1em solid black;
+         position:absolute; 
+         top:3.5em; 
+	}
+	.eye>div{
+		width: .65em;
+		height: .65em;
+		border-radius: 50%;
+		background: #000;
+		position: absolute;
+		top: 4.5em;
+	}
+	.eyebrow>div:nth-child(1){
+		left: 1em;
+		transform: rotate(-5deg);
+	}	
+	.eyebrow>div:nth-child(2){
+		right: 1em;
+		transform: rotate(5deg);
+	}
+	.nose{
+		width: .24em;
+		height: .1em;
+		position: absolute;
+		background: #000;
+		border-radius: 40% 40% 0 0 /100% 100% 0 0;
+		top: 5.3em;
+		left: 3.38em;
+	}
+	.l1{
+		left: 1.2em;	
+	}
+	.r1{
+		right: 1.2em;
+	}
+	.mouth{
+		 width:2em; 
+         height:.4em; 
+         /*background: #8d3f33;*/
+         border-bottom: .1em solid #8d3f33;
+         border-radius: 0 0 60% 60%/ 0 0 100% 100%;
+         position:absolute; 
+         top:6em; 
+         left:2.5em; 
+         position: relative;
+	}
+	.mouth:after{
+		content: '';
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: .15em;
+		background: #ecc3ab;
+
+	}
+	.blusher>div {
+		width: .1em;
+		height: .1em;
+		border-radius: 50%;
+		background: #e5a798;
+		box-shadow: 0 0 1.2em .9em #e5a798;
+		position: absolute;
+		top: 6.2em;
+	}
+	.ear>div{
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		/*position: absolute;*/
+		z-index:-10;
+	}
+	.ear>div:nth-child(1){
+		top: 4em;
+		left: -.8em;
+		border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+		box-shadow: .3em 0 .3em #e8b5a9 inset;
+		transform: rotate(-10deg);
+	}	
+	.ear>div:nth-child(2){
+		top: 4em;
+		right: -.8em;
+		border-radius: 0 100% 100% 0/  0 50% 70% 0;
+		box-shadow: -.3em 0 .3em #e8b5a9 inset;
+		transform: rotate(10deg);
+	}
+
+	.bodys{
+		width: 6em;
+		height: 6em;
+		background: #e8b5a9;
+		border-radius: 30% 30% 2% 2%/ 20% 20% 2% 2%;
+		left: 0.5em;
+		top: 8.4em;
+		z-index: 10;
+		border-bottom: 1px solid #5a5a5a;
+		position: absolute;
+		background: linear-gradient(-45deg, #727471 60%, #5a5a5a 0, #5a5a5a 60.3%, #717271 0, #717271 70%, #5a5a5a 0, #5a5a5a 70.4%,transparent 0),linear-gradient(-135deg, #e8b5a9 30%, #5a5a5a 0, #5a5a5a 30.3%, #717271 0, #717271 40%,#5a5a5a 0, #5a5a5a 40.3%,#727471 0);
+	}
+	.arms div{
+		position: absolute;
+		width: 2em;
+		height: 5.7em;
+		z-index: 15;
+		/*background: rgba(0,0,0,.5);*/
+		/*background: #727471;*/
+		
+	}
+	.arms .l1{
+		left: -.8em;
+		top: .2em;
+		border-radius: 100% 0  0 20%/ 80% 0  0 2%;
+		transform: rotate(10deg);  
+		transform-origin: right top;
+		background:linear-gradient(transparent 40%, #5a5a5a 0) no-repeat right, linear-gradient(#727471, #727471) left;
+		background-size: 1.5px 100%, 100% 100%;
+	}	
+	.arms .r1{
+		left: 4.8em;
+		top: .2em;
+		border-radius: 0 100%  20% 0 / 0 80% 3% 0;
+		transform: rotate(-10deg); 
+		transform-origin: left top; 
+		/*background:linear-gradient(140deg, transparent 3%, #727471 0) ;*/
+		background:linear-gradient(transparent 40%, #5a5a5a 0) no-repeat left, linear-gradient(#727471, #727471) right;
+		background-size: 1.5px 100%, 100% 100%;
+	}
+	.arms .l1::before, .arms .r1::before{
+		content: '';
+		position: absolute;
+		width: 1.5em;
+		height: 1.1em;
+		background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+		border-radius:0 0 60% 60%/0 0 60% 60%;
+		z-index: -20;
+	}
+	.arms .l1:before{
+		left: .35em;
+		top: 5.6em;	
+	}	
+	.arms .r1:before{
+		left: .35em;
+		top: 5.6em;
+	} 
+	.leg div{
+		width: 2.7em;
+		height: 2em;
+		background: #727471;
+		position: absolute;
+		border-radius: 0 0 20% 20% / 0 0 100% 100%;
+		border: 1px solid #5a5a5a;
+		top: 13.8em;
+		z-index: 9;
+	}
+	.leg .l1{
+		left: .8em;
+	}	
+	.leg .r1{
+		left: 3.4em;
+	}
+	.foot{position: relative;}
+	.foot div{
+		width: 2.2em;
+		height: .5em;
+		background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+		position: absolute;
+		top: 15.8em;
+		z-index: 6;
+	}
+	.foot .l1{
+		left: .8em;
+		border-radius: 60% 0 20% 5% / 80% 0 70% 20%;
+	}	
+	.foot .r1{
+		left: 3.9em;
+		border-radius: 0 60% 5% 20% / 0 80% 20% 70%;
+	}
+	.part2 .monk{
+		position: absolute;
+		height: 17em;
+		font-size: 120%;
+		bottom: 0;
+		left: 10%;
+	}
+	.part2{
+		font-size: 60%;
+		width: 100vw;
+		height: 100vh;
+		background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #FDFDFD 0, #BEC7CC 75vh, #9B9FA0);
+		position: absolute;
+		top: 0;
+		opacity: 0;
+}
+	.part2 .mountain{
+		font-size: 300%;
+		position: absolute;
+		right: 0;
+		bottom: 18vh;
+		width: 5.2em;
+		height: 8em;
+		background: #9fd172;
+		border-radius: 40% 40% 5% 5% / 100% 100% 5% 5%;
+		box-shadow: .3em .3em 0 .3em #7ab42a inset,.6em .6em 0 .6em #86be41 inset, .9em .9em 0 .9em #8cc252 inset, 1.2em 1.2em 0 1.2em #9bcd6a inset, .4em .1em 0 -.1em rgba(0,0,0,.5);
+	}
+	.part2 .river{
+		width: 5em;
+		height: 11vh;
+		position: absolute;
+		left: 50%;
+		margin-left: 3.2em;
+		bottom: 0;
+		opacity: 1;
+		border-radius: 80% 0 0 50% / 50% 0 0 50%;
+		box-shadow: -.6em 0 0 .5em #b7f8fd, -.7em 0 0 .6em #9ef9ff, -1em 0 0 .9em #93f5fb, -1.3em 0 0 1.2em #78f3fb, -1.5em 0 0 1.4em #6cedf6;
+		font-size: 300%;
+	}
