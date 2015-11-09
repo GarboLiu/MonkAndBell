@@ -1,0 +1,878 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <title>CSS3动态数字翻转切换动画特效 - xw素材网</title>
+    <style type="text/css">
+    html,
+    body,
+    div,
+    span,
+    applet,
+    object,
+    iframe,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    blockquote,
+    pre,
+    a,
+    abbr,
+    acronym,
+    address,
+    big,
+    cite,
+    code,
+    del,
+    dfn,
+    em,
+    img,
+    ins,
+    kbd,
+    q,
+    s,
+    samp,
+    small,
+    strike,
+    strong,
+    sub,
+    sup,
+    tt,
+    var,
+    b,
+    u,
+    i,
+    center,
+    dl,
+    dt,
+    dd,
+    ol,
+    ul,
+    li,
+    fieldset,
+    form,
+    label,
+    legend,
+    table,
+    caption,
+    tbody,
+    tfoot,
+    thead,
+    tr,
+    th,
+    td,
+    article,
+    aside,
+    canvas,
+    details,
+    embed,
+    figure,
+    figcaption,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    output,
+    ruby,
+    section,
+    summary,
+    time,
+    mark,
+    audio,
+    video {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        vertical-align: baseline;
+        font: inherit;
+        font-size: 100%;
+    }
+    
+    article,
+    aside,
+    details,
+    figcaption,
+    figure,
+    footer,
+    header,
+    hgroup,
+    menu,
+    nav,
+    section {
+        display: block;
+    }
+    
+    body {
+        line-height: 1;
+    }
+    
+    ol,
+    ul {
+        list-style: none;
+    }
+    
+    blockquote,
+    q {
+        quotes: none;
+    }
+    
+    blockquote:before,
+    blockquote:after,
+    q:before,
+    q:after {
+        content: '';
+        content: none;
+    }
+    
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+    
+    #stage-1 .stage-content {
+        width: 700px;
+        height: 630px;
+        margin: 60px auto 0 auto;
+    }
+    
+    .stage-1-icon {
+        width: 204px;
+        height: 289px;
+        margin: 0 auto 68px;
+        position: relative;
+        -webkit-perspective: 900px
+    }
+    
+    .stage-1-icon-top,
+    .stage-1-icon-bottom {
+        width: 184px;
+        position: absolute;
+        left: 0;
+        background-color: #fff;
+        background-repeat: no-repeat;
+        -webkit-transform-style: preserve-3d
+    }
+    
+    .stage-1-icon-top {
+        height: 134px;
+        padding: 10px 10px 0;
+        top: 0;
+        background-position: center 10px;
+        transform-origin: center bottom
+    }
+    
+    .stage-1-icon-bottom {
+        height: 135px;
+        top: 144px;
+        padding: 0 10px 10px;
+        background-position: center -134px;
+        transform-origin: center top
+    }
+    
+    .stage-1-icon-1 .stage-1-icon-top,
+    .stage-1-icon-1 .stage-1-icon-bottom {
+        z-index: 7;
+        background-image: url(http://www.xwcms.net/webAnnexImages/fileAnnex/201505/19565/img/bg-number-6_e104400.png)
+    }
+    
+    .stage-1-icon-2 .stage-1-icon-top,
+    .stage-1-icon-2 .stage-1-icon-bottom {
+        z-index: 6;
+        background-image: url(http://www.xwcms.net/webAnnexImages/fileAnnex/201505/19565/img/bg-number-7_5c57e30.png)
+    }
+    
+    @-webkit-keyframes fadein {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @keyframes fadein {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @-webkit-keyframes fadeout {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    @keyframes fadeout {
+        0% {
+            opacity: 1;
+        }
+        100% {
+            opacity: 0;
+        }
+    }
+    
+    @-webkit-keyframes first-1 {
+        0% {
+            top: 38.57%;
+            opacity: 0;
+            -webkit-transform: scale(0.1);
+        }
+        100% {
+            top: 38.57%;
+            opacity: 1;
+            -webkit-transform: scale(1);
+        }
+    }
+    
+    @keyframes first-1 {
+        0% {
+            top: 38.57%;
+            opacity: 0;
+            transform: scale(0.1);
+        }
+        100% {
+            top: 38.57%;
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+    
+    @-webkit-keyframes first-2 {
+        0% {
+            top: 38.57%;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    
+    @keyframes first-2 {
+        0% {
+            top: 38.57%;
+        }
+        100% {
+            top: 0;
+        }
+    }
+    
+    @-webkit-keyframes flipover-top {
+        0% {
+            z-index: 8;
+            background-color: #fff;
+            -webkit-transform: rotateX(0);
+        }
+        50% {
+            z-index: 8;
+            background-color: #efefef;
+            -webkit-transform: rotateX(-90deg);
+        }
+        51% {
+            z-index: 7;
+            opacity: 1;
+        }
+        100% {
+            z-index: 7;
+            background-color: #fff;
+            opacity: 0;
+            -webkit-transform: rotateX(-180deg);
+        }
+    }
+    
+    
+    @keyframes flipover-top {
+        0% {
+            z-index: 8;
+            background-color: #fff;
+            transform: rotateX(0);
+        }
+        50% {
+            z-index: 8;
+            background-color: #efefef;
+            transform: rotateX(-90deg);
+        }
+        51% {
+            z-index: 7;
+            opacity: 1;
+        }
+        100% {
+            z-index: 7;
+            background-color: #fff;
+            opacity: 0;
+            transform: rotateX(-180deg);
+        }
+    }
+    
+    @-webkit-keyframes flipover-bottom {
+        0% {
+            z-index: 7;
+            background-color: #fff;
+            -webkit-transform: rotateX(180deg);
+        }
+        50% {
+            z-index: 7;
+            background-color: #efefef;
+            -webkit-transform: rotateX(90deg);
+        }
+        51% {
+            z-index: 8;
+        }
+        100% {
+            z-index: 8;
+            background-color: #fff;
+            -webkit-transform: rotateX(0);
+        }
+    }
+    
+    
+    
+    @keyframes flipover-bottom {
+        0% {
+            z-index: 7;
+            background-color: #fff;
+            transform: rotateX(180deg);
+        }
+        50% {
+            z-index: 7;
+            background-color: #efefef;
+            transform: rotateX(90deg);
+        }
+        51% {
+            z-index: 8;
+        }
+        100% {
+            z-index: 8;
+            background-color: #fff;
+            transform: rotateX(0);
+        }
+    }
+    
+    @-webkit-keyframes fadein-from-bottom {
+        0% {
+            opacity: 0;
+            -webkit-transform: translateY(300px);
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+        }
+    }
+    
+    
+    
+    @keyframes fadein-from-bottom {
+        0% {
+            opacity: 0;
+            transform: translateY(300px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+   
+    
+    .stage-1-icon {
+        opacity: 1;
+        /*animation: first-1 .8s ease-out .6s 1 forwards, first-2 .5s ease-out 2.7s 1 forwards*/
+    }
+    
+    .stage-1-icon-bottom {
+        transform: translateX(0) translateY(0) translateZ(0) rotateX(180deg) rotateY(0) rotateZ(0) rotate(0) scale(1)
+    }
+    
+    .stage-1-icon-1 .stage-1-icon-bottom {
+        transform: translateX(0) translateY(0) translateZ(0) rotateX(0) rotateY(0) rotateZ(0) rotate(0) scale(1)
+    }
+    
+    .stage-1-icon-1 .stage-1-icon-top {
+        animation: flipover-top .15s linear 1.2s 1 normal forwards
+    }
+    
+    .stage-1-icon-2 .stage-1-icon-bottom {
+        animation: flipover-bottom .15s linear 1.2s 1 normal forwards
+    }
+    
+    .stage-1-icon-2 .stage-1-icon-top {
+        /*animation: flipover-top .15s linear 1.3499999999999999s 1 normal forwards*/
+    }
+    </style>
+</head>
+
+<body>
+    <!-- <div id="stage-1" class="stage stage-state-default">
+        <div class="stage-content">
+            <ul class="stage-1-icon">
+                <li class="stage-1-icon-1"> <span class="stage-1-icon-top"></span> <span class="stage-1-icon-bottom"></span> </li>
+                <li class="stage-1-icon-2"> <span class="stage-1-icon-top"></span> <span class="stage-1-icon-bottom"></span> </li>
+            </ul>
+        </div>
+    </div> -->
+    <style>
+    .test{
+		width: 204px;
+        height: 289px;
+
+    }
+	.page1{
+		
+	}
+	.icon_top, .icon_bottom{
+		width: 184px;
+		position: absolute;
+		top: 0;
+		overflow: hidden;
+		background:#fff no-repeat;
+	}
+	.icon_top{
+		height: 134px;
+		background-position: center 0px;
+		transform-origin: bottom center;
+	}
+	.icon_bottom{
+		height: 135px;
+		top: 134px;
+		background-position: center -134px;
+		transform-origin: top center;
+		transform: rotateX(180deg);
+	}
+	.page1 .icon_top, .page1 .icon_bottom{
+		z-index: 7;
+        background-image: url(http://www.xwcms.net/webAnnexImages/fileAnnex/201505/19565/img/bg-number-6_e104400.png)
+	}
+	.page2 .icon_top, .page2 .icon_bottom{
+		z-index: 2;
+        background-image: url(http://www.xwcms.net/webAnnexImages/fileAnnex/201505/19565/img/bg-number-7_5c57e30.png)
+	}
+
+	.page1 .icon_bottom{
+		transform: rotate(0);
+	}
+
+	.page1 .icon_top{
+        animation: flip-top .15s linear 1.2s 1 normal forwards
+	}
+	.page2 .icon_bottom{
+        animation: flip-bottom .35s linear 1.2s 1 normal forwards
+	}
+
+	@keyframes flip-bottom{
+		0%{
+			z-index: 7;
+			background: #fff;
+			transform: rotateX(180deg);
+		}
+		50%{
+			z-index: 7;
+			background-color: #efefef;
+            transform: rotateX(90deg);
+		}
+		51%{
+			z-index: 8;
+		}
+		100%{
+			z-index: 8;
+            background-color: #fff;
+            transform: rotateX(0);
+		}
+	}
+
+	@keyframes flip-top{
+		0% {
+            z-index: 8;
+            background-color: #fff;
+            transform: rotateX(0);
+        }
+        50% {
+            z-index: 8;
+            background-color: #efefef;
+            transform: rotateX(-90deg);
+        }
+        51% {
+            z-index: 7;
+            opacity: 1;
+        }
+        100% {
+            z-index: 7;
+            background-color: #fff;
+            opacity: 0;
+            transform: rotateX(-180deg);
+        }
+	}
+	.dn{display: none;}
+    </style>
+    <ul class="test dn">
+    	<li class="page1"><span class="icon_top"></span><span class="icon_bottom"></span></li>
+    	<li class="page2"><span class="icon_top"></span><span class="icon_bottom"></span></li>
+    </ul>
+	
+
+	<style>
+		.page11, .page12{
+			width: 184px;
+			height: 269px;
+			background: #fff no-repeat center;
+			position: absolute;
+			top: 0;
+		}
+		.page11{
+			z-index: 2;
+	        background-image: url(http://www.xwcms.net/webAnnexImages/fileAnnex/201505/19565/img/bg-number-6_e104400.png);
+			animation: small .2s ease-in 1.2s  normal forwards, fadeout-left .4s linear 2s normal forwards;
+		}
+		.page12{
+			z-index: 1;
+	        background-image: url(http://www.xwcms.net/webAnnexImages/fileAnnex/201505/19565/img/bg-number-7_5c57e30.png);
+	        animation:fadein 3s linear forwards, largen .4s ease-out 2s forwards ;
+		}
+		@keyframes small{
+			0%{
+				transform: scale(1);
+			}
+			100%{
+				transform: scale(.6);
+			}
+		}
+
+		@keyframes fadeout-left{
+			0%{
+				opacity: 1;
+			}
+			100%{
+				margin-left: -30%;
+				opacity: 0;
+			}
+		}
+		@keyframes largen{
+			0%{
+				transform: scale(.4);
+			}
+			100%{
+				transform: scale(1);
+			}
+		}
+
+	</style>
+    <ul class="test2 dn">
+    	<li class="page11"></li>
+    	<li class="page12"></li>
+    </ul>
+
+<style>
+	.wrapper{font-size:100%;}
+	/*.monk{position: relative;margin-left: 4em;}*/
+	.monk .head_div{position: absolute;transform: rotate(15deg);    transform-origin: 3.5em 8.5em;z-index: 15;}
+	.monk .head{
+		position: absolute;
+		width: 7em;
+		height: 8.5em;
+		background: radial-gradient( #ecc3ab 60%, #e5a798 );
+		box-shadow: 0 .6em .2em -.5em rgba(0,0,0,.4);
+		border-radius: 50% 50% 50% 50% /35% 35% 30% 30%;
+		border: 1px solid #bc896c;
+	}
+	.monk .head:after{
+		content: '';
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index:-1;
+		top: 4em;
+		left: -.8em;
+		border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+		box-shadow: .3em 0 .3em #e8b5a9 inset;
+		transform: rotate(-10deg);
+	}	
+	.monk .head:before{
+		content: '';
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		position: absolute;
+		z-index:-1;
+		top: 4em;
+		right: -.8em;
+		border-radius: 0 100% 100% 0/  0 50% 70% 0;
+		box-shadow: -.3em 0 .3em #e8b5a9 inset;
+		transform: rotate(10deg);
+	}
+	.eyebrow>div{
+		width:.9em; 
+         height:.06em; 
+         border-radius:50% 50% 0 0 /100% 100% 0 0; 
+         border-top: .1em solid black;
+         position:absolute; 
+         top:3.5em; 
+	}
+	.eye>div{
+		width: .65em;
+		height: .65em;
+		border-radius: 50%;
+		background: #000;
+		position: absolute;
+		top: 4.5em;
+	}
+	.eyebrow>div:nth-child(1){
+		left: 1em;
+		transform: rotate(-5deg);
+	}	
+	.eyebrow>div:nth-child(2){
+		right: 1em;
+		transform: rotate(5deg);
+	}
+	.nose{
+		width: .24em;
+		height: .1em;
+		position: absolute;
+		background: #000;
+		border-radius: 40% 40% 0 0 /100% 100% 0 0;
+		top: 5.3em;
+		left: 3.38em;
+	}
+	.l1{
+		left: 1.2em;	
+	}
+	.r1{
+		right: 1.2em;
+	}
+	.mouth{
+		 width:2em; 
+         height:.4em; 
+         /*background: #8d3f33;*/
+         border-bottom: .1em solid #8d3f33;
+         border-radius: 0 0 60% 60%/ 0 0 100% 100%;
+         position:absolute; 
+         top:6em; 
+         left:2.5em; 
+         position: relative;
+	}
+	.mouth:after{
+		content: '';
+		position: absolute;
+		top: 0; left: 0; right: 0; bottom: .15em;
+		background: #ecc3ab;
+
+	}
+	.blusher>div {
+		width: .1em;
+		height: .1em;
+		border-radius: 50%;
+		background: #e5a798;
+		box-shadow: 0 0 1.2em .9em #e5a798;
+		position: absolute;
+		top: 6.2em;
+	}
+	.ear>div{
+		width: 1em;
+		height: 1.8em;
+		background: #ecc3ab;
+		border: 1px solid #bc896c;
+		/*position: absolute;*/
+		z-index:-10;
+	}
+	.ear>div:nth-child(1){
+		top: 4em;
+		left: -.8em;
+		border-radius: 100% 0 0 100%/ 50% 0 0 65%;
+		box-shadow: .3em 0 .3em #e8b5a9 inset;
+		transform: rotate(-10deg);
+	}	
+	.ear>div:nth-child(2){
+		top: 4em;
+		right: -.8em;
+		border-radius: 0 100% 100% 0/  0 50% 70% 0;
+		box-shadow: -.3em 0 .3em #e8b5a9 inset;
+		transform: rotate(10deg);
+	}
+
+	.bodys{
+		width: 6em;
+		height: 6em;
+		background: #e8b5a9;
+		border-radius: 30% 30% 2% 2%/ 20% 20% 2% 2%;
+		left: 0.5em;
+		top: 8.4em;
+		z-index: 10;
+		border-bottom: 1px solid #5a5a5a;
+		position: absolute;
+		background: linear-gradient(-45deg, #727471 60%, #5a5a5a 0, #5a5a5a 60.3%, #717271 0, #717271 70%, #5a5a5a 0, #5a5a5a 70.4%,transparent 0),linear-gradient(-135deg, #e8b5a9 30%, #5a5a5a 0, #5a5a5a 30.3%, #717271 0, #717271 40%,#5a5a5a 0, #5a5a5a 40.3%,#727471 0);
+	}
+	.arms div{
+		position: absolute;
+		width: 2em;
+		height: 5.7em;
+		z-index: 15;
+		/*background: rgba(0,0,0,.5);*/
+		/*background: #727471;*/
+		
+	}
+	.arms .l1{
+		left: -.8em;
+		top: .2em;
+		border-radius: 100% 0  0 20%/ 80% 0  0 2%;
+		transform: rotate(10deg);  
+		transform-origin: right top;
+		background:linear-gradient(transparent 40%, #5a5a5a 0) no-repeat right, linear-gradient(#727471, #727471) left;
+		background-size: 1.5px 100%, 100% 100%;
+	}	
+	.arms .r1{
+		left: 4.8em;
+		top: .2em;
+		border-radius: 0 100%  20% 0 / 0 80% 3% 0;
+		transform: rotate(-10deg); 
+		transform-origin: left top; 
+		/*background:linear-gradient(140deg, transparent 3%, #727471 0) ;*/
+		background:linear-gradient(transparent 40%, #5a5a5a 0) no-repeat left, linear-gradient(#727471, #727471) right;
+		background-size: 1.5px 100%, 100% 100%;
+	}
+	.arms .l1::before, .arms .r1::before{
+		content: '';
+		position: absolute;
+		width: 1.5em;
+		height: 1.1em;
+		background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+		border-radius:0 0 60% 60%/0 0 60% 60%;
+		z-index: -20;
+	}
+	.arms .l1:before{
+		left: .35em;
+		top: 5.6em;	
+	}	
+	.arms .r1:before{
+		left: .35em;
+		top: 5.6em;
+	} 
+	.leg div{
+		width: 2.7em;
+		height: 2em;
+		background: #727471;
+		position: absolute;
+		border-radius: 0 0 20% 20% / 0 0 100% 100%;
+		border: 1px solid #5a5a5a;
+		top: 13.8em;
+		z-index: 9;
+	}
+	.leg .l1{
+		left: .8em;
+	}	
+	.leg .r1{
+		left: 3.4em;
+	}
+	.foot{position: relative;}
+	.foot div{
+		width: 2.2em;
+		height: .5em;
+		background: radial-gradient( #ecc3ab 35%, #e8b5a9);
+		position: absolute;
+		top: 15.8em;
+		z-index: 6;
+	}
+	.foot .l1{
+		left: .8em;
+		border-radius: 60% 0 20% 5% / 80% 0 70% 20%;
+	}	
+	.foot .r1{
+		left: 3.9em;
+		border-radius: 0 60% 5% 20% / 0 80% 20% 70%;
+	}
+	</style>
+	<style>
+	.monk{
+		position: absolute;
+		height: 17em;
+		font-size: 120%;
+		bottom: 0;
+		left: 10%;
+	}
+	.page2{
+		width: 100vw;
+		height: 100vh;
+background: linear-gradient(360deg, #92c83f 19vh, #85b93a 0, #85b93a 20vh, #FDFDFD 0, #BEC7CC 75vh, #9B9FA0);
+}
+	.mountain{
+		font-size: 300%;
+		position: absolute;
+		right: 0;
+		bottom: 18vh;
+		width: 5.2em;
+		height: 8em;
+		background: #9fd172;
+		border-radius: 40% 40% 5% 5% / 100% 100% 5% 5%;
+		box-shadow: .3em .3em 0 .3em #7ab42a inset,.6em .6em 0 .6em #86be41 inset, .9em .9em 0 .9em #8cc252 inset, 1.2em 1.2em 0 1.2em #9bcd6a inset, .4em .1em 0 -.1em rgba(0,0,0,.5);
+	}
+	.river{
+		width: 5em;
+		height: 11vh;
+		position: absolute;
+		left: 50%;
+		margin-left: 3.2em;
+		bottom: 0;
+		opacity: 1;
+		border-radius: 80% 0 0 50% / 50% 0 0 50%;
+		box-shadow: -.6em 0 0 .5em #b7f8fd, -.7em 0 0 .6em #9ef9ff, -1em 0 0 .9em #93f5fb, -1.3em 0 0 1.2em #78f3fb, -1.5em 0 0 1.4em #6cedf6;
+		animation: riverShow 1.8s cubic-bezier(.81,0,.43,1.39) both;
+		font-size: 300%;
+	}
+</style>
+<div class="wrapper">
+	<div class="page2">
+		<div class="monk">
+			<div class="head_div">
+				<div class="head">
+				<div class="eyebrow">
+					<div></div>
+					<div></div>
+				</div>
+				<div class="eye">
+					<div class="l1"></div>
+					<div class="r1"></div>
+				</div>
+				<div class="nose"></div>
+				<div class="mouth"></div>
+				<div class="blusher">
+					<div class="l1"></div>
+					<div class="r1"></div>
+				</div>
+			</div>
+			</div>
+			<div class="bodys">
+				<div class="arms">
+					<div class="l1">
+					</div>
+					<div class="r1">
+					</div>
+				</div>
+			</div>
+			<div class="leg">
+				<div class="l1"></div>
+				<div class="r1"></div>
+			</div>
+			<div class="foot">
+				<div class="l1"></div>
+				<div class="r1"></div>
+			</div>
+		</div>
+		<div class="mountain"></div>
+		<div class="river"></div>
+	</div>
+</div>
+</body>
+
+</html>
