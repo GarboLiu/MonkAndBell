@@ -1,0 +1,30 @@
+@define-mixin icon $network, $color: blue {
+    .icon.is-$(network) {
+        color: $color;
+        @mixin-content;
+    }
+    .icon.is-$(network):hover {
+        color: white;
+        background: $color;
+    }
+}
+
+@mixin icon twitter {
+    background: url(twt.png);
+}
+@mixin icon youtube, red {
+    background: url(youtube.png);
+}
+.cloud2 {
+    width: 2.5em;
+    height: 2.5em;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 120%;
+    top: 5.8em;
+    left: -.4em;
+    box-shadow: rgba(0, 0, 0, .1) -.05em .05em 0, #FFF 1em -1.2em 0 .1em, #FFF 2.8em -.8em 0 -.2em, #FFF 4em -.3em 0 -.3em, #fff 1.6em .25em 0 .1em, #fff 3.3em .4em 0 -.5em;
+    z-index: 10;
+    animation: moveFromRight .7s cubic-bezier(.81, 0, .43, 1.39) both;
+}
