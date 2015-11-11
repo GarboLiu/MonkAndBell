@@ -16,7 +16,6 @@ var mixins = require('postcss-mixins');
 var fs = require('fs');
 var corepostcss = require('postcss');
 var categories = require('./data/cat-colors.json');
-
 var dataloop = function(css) {
     for (var category in categories.colorList) {
         var colorSet = categories.colorList[category];
@@ -70,11 +69,7 @@ function browsersync() {
 
 }
 
-// watch
-function watch() {
-    gulp.watch('preCss/*.css', [css, browserSync.reload]);
-    gulp.watch('*.html', browserSync.reload);
-}
+
 gulp.task('default', gulp.series(
 	css,
 	browsersync
