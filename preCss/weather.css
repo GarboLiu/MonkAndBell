@@ -15,16 +15,361 @@
 @mixin icon youtube, red {
     background: url(youtube.png);
 }
-.cloud2 {
-    width: 2.5em;
-    height: 2.5em;
-    background: #fff;
-    border-radius: 50%;
+
+@define-mixin icon $name {
+    padding-left: 16px;
+    &::after {
+        content: "";
+        background-url: url(/icons/$(name).png);
+    }
+}
+
+.search {
+    @mixin icon search;
+}
+
+@define-mixin cloud $color{
+	width: 2.5em;
+	height: 2.5em;
+	background: $color;
+	border-radius: 50%;
     position: absolute;
+    box-shadow: rgba(0, 0, 0, .1) -.05em .05em 0, $color 1em -1.2em 0 .1em, $color 2.8em -.8em 0 -.2em, $color 4em -.3em 0 -.3em, $color 1.6em .25em 0 .1em, $color 3.3em .4em 0 -.5em;
+
+}
+@define-mixin rainy{
+	&::before{
+	content: '';
+	background: #CCCCCC;
+	border-radius: 50%;
+	display: block;
+	height: 6px;
+	width: 3px;
+	opacity: 0.3;
+	transform: scale(.9);
+	}
+	&::after{
+	background: #000000;
+	border-radius: 50%;
+	content: '';
+	height: 15px;
+	width: 120px;
+	opacity: 0.2;
+	position: absolute;
+	left: 5px;
+	bottom: -60px;
+	}
+}
+.cloudy{
+	@mixin cloud #fff;
+	font-size: 120%;
+    top: 5.8em;
+    left: .4em;
+}
+.rainy {
+    @mixin cloud gray;
+    @mixin rainy ;
+	 animation: rainy 5s ease-in-out infinite 1s;
+
     font-size: 120%;
     top: 5.8em;
-    left: -.4em;
-    box-shadow: rgba(0, 0, 0, .1) -.05em .05em 0, #FFF 1em -1.2em 0 .1em, #FFF 2.8em -.8em 0 -.2em, #FFF 4em -.3em 0 -.3em, #fff 1.6em .25em 0 .1em, #fff 3.3em .4em 0 -.5em;
-    z-index: 10;
-    animation: moveFromRight .7s cubic-bezier(.81, 0, .43, 1.39) both;
+    left: 7.4em;
+}
+.rainy:after {
+	animation: rainy_shadow 5s ease-in-out infinite 1s;
+	transform: scale(.7);
+}
+.rainy:before {
+	-webkit-animation: rainy_rain .7s infinite linear;
+	animation: rainy_rain .7s infinite linear;
+
+}
+@define-mixin stormy{
+	&::after {
+	background: #000;
+	border-radius: 50%;
+	content: '';
+	height: 15px; 
+	width: 120px; 
+	opacity: 0.2;
+	position: absolute;
+	left: 5px; 
+	bottom: -60px;
+    transform: scale(.7);
+}
+&::before {
+	border-left: 0px solid transparent;
+	border-right: 7px solid transparent;
+	border-top: 43px solid yellow; 
+	box-shadow: yellow -7px -32px;
+	content: '';
+	display: block;
+	height: 0;
+	width: 0;
+	position: absolute;
+	left: 57px;
+	top: 70px;
+    transform: rotate(14deg);
+    transform-origin: 50% -60px;
+}
+}
+.stormy {
+	animation: stormy 5s ease-in-out infinite;
+	@mixin cloud black;
+	@mixin stormy;
+	font-size: 120%;
+	top: 5.8em;
+	left: 14.4em;
+}
+.stormy::after{
+    animation: stormy_shadow 5s ease-in-out infinite;
+}
+.stormy::before{
+    animation: stormy_thunder 2s steps(1, end) infinite; 
+}
+
+@define-mixin snowy{
+	&::after {
+	background: #000000;
+	border-radius: 50%;
+	content: '';
+	height: 15px;
+	width: 120px;
+	opacity: 0.2;
+	position: absolute;
+	left: 8px;
+	bottom: -60px;
+	        transform: scale(.7);
+}
+&::before {
+	content: '';
+	border-radius: 50%;
+	display: block;
+	height: 7px;
+	width: 7px;
+	opacity: 0.8;
+	        transform: scale(.9);
+}
+}
+.snowy {
+	@mixin cloud #fff;
+	@mixin snowy;
+	font-size: 120%;
+	top: 5.8em;
+	left: 21.4em;
+animation: snowy 5s ease-in-out infinite;
+}
+.snowy::after{
+    animation: snowy_shadow 5s ease-in-out infinite 1s;
+}
+.snowy::before{
+    animation: snowy_snow 2s infinite linear;
+}
+
+
+@keyframes snowy {
+	50% { transform: translateY(-20px); }
+}
+@keyframes snowy_shadow {
+	50% { transform: translateY(20px) scale(1); opacity: 0.05; }
+}
+@keyframes snowy_snow {
+	0% {  
+		box-shadow: 
+			rgba(238,238,238,0) 30px 30px, 
+			rgba(238,238,238,0) 40px 40px,  
+			#EEEEEE 50px 75px, 
+			#EEEEEE 55px 50px, 
+			#EEEEEE 70px 100px, 
+			#EEEEEE 80px 95px, 
+			#EEEEEE 110px 45px, 
+			#EEEEEE 90px 35px; 
+	}
+	25% {  
+	  	box-shadow: 
+			#EEEEEE 30px 45px,
+			#EEEEEE 40px 60px,
+			#EEEEEE 50px 90px,
+			#EEEEEE 55px 65px,
+			rgba(238,238,238,0) 70px 120px,
+			rgba(238,238,238,0) 80px 120px,
+			#EEEEEE 110px 70px,
+			#EEEEEE 90px 60px;
+	}
+	26% {  
+		box-shadow:
+			#EEEEEE 30px 45px,
+			#EEEEEE 40px 60px,
+			#EEEEEE 50px 90px,
+			#EEEEEE 55px 65px,
+			rgba(238,238,238,0) 70px 40px,
+			rgba(238,238,238,0) 80px 20px,
+			#EEEEEE 110px 70px,
+			#EEEEEE 90px 60px; 
+	}
+	50% { 
+		box-shadow:
+			#EEEEEE 30px 70px,
+			#EEEEEE 40px 80px,
+			rgba(238,238,238,0) 50px 100px,
+			#EEEEEE 55px 80px,
+			#EEEEEE 70px 60px,
+			#EEEEEE 80px 45px,
+			#EEEEEE 110px 95px,
+			#EEEEEE 90px 85px;
+	}
+	51% {
+		box-shadow:
+			#EEEEEE 30px 70px,
+			#EEEEEE 40px 80px,
+			rgba(238,238,238,0) 50px 45px,
+			#EEEEEE 55px 80px,
+			#EEEEEE 70px 60px,
+			#EEEEEE 80px 45px,
+			#EEEEEE 110px 95px,
+			#EEEEEE 90px 85px;
+	}
+	75% {
+		box-shadow:
+			#EEEEEE 30px 95px,
+			#EEEEEE 40px 100px,
+			#EEEEEE 50px 60px,
+			rgba(238,238,238,0) 55px 95px,
+			#EEEEEE 70px 80px,
+			#EEEEEE 80px 70px,
+			rgba(238,238,238,0) 110px 120px,
+			rgba(238,238,238,0) 90px 110px;
+	}
+	76% {
+		box-shadow:
+			#EEEEEE 30px 95px,
+			#EEEEEE 40px 100px,
+			#EEEEEE 50px 60px,
+			rgba(238,238,238,0) 55px 35px,
+			#EEEEEE 70px 80px,
+			#EEEEEE 80px 70px,
+			rgba(238,238,238,0) 110px 25px,
+			rgba(238,238,238,0) 90px 15px;
+	}
+	100% {
+		box-shadow:
+			rgba(238,238,238,0) 30px 120px,
+			rgba(238,238,238,0) 40px 120px,
+			#EEEEEE 50px 75px,
+			#EEEEEE 55px 50px,
+			#EEEEEE 70px 100px,
+			#EEEEEE 80px 95px,
+			#EEEEEE 110px 45px,
+			#EEEEEE 90px 35px;
+	}
+}
+
+
+@keyframes stormy {
+	50% { -webkit-transform: translateY(-20px); transform: translateY(-20px); } 
+} 
+@keyframes stormy_shadow {
+	50% {transform: translateY(20px) scale(1); opacity: 0.05; }
+}
+@keyframes stormy_thunder {
+	0%  { -webkit-transform: rotate(20deg); transform: rotate(20deg); opacity:1; }
+	5%  { -webkit-transform: rotate(-34deg); transform: rotate(-34deg); opacity:1; }
+	10% { -webkit-transform: rotate(0deg); transform: rotate(0deg); opacity:1; }
+	15% { -webkit-transform: rotate(-34deg); transform: rotate(-34deg); opacity:0; }
+}
+@keyframes rainy {
+	50% {transform: translateY(-20px); }
+}
+@keyframes rainy_rain {
+	0% {  
+		box-shadow: 
+			rgba(0,0,0,0) 30px 30px, 
+			rgba(0,0,0,0) 40px 40px,  
+			#000 50px 75px, 
+			#000 55px 50px, 
+			#000 70px 100px, 
+			#000 80px 95px, 
+			#000 110px 45px, 
+			#000 90px 35px; 
+	}
+	25% {  
+	  	box-shadow: 
+			#000 30px 45px,
+			#000 40px 60px,
+			#000 50px 90px,
+			#000 55px 65px,
+			rgba(0,0,0,0) 70px 120px,
+			rgba(0,0,0,0) 80px 120px,
+			#000 110px 70px,
+			#000 90px 60px;
+	}
+	26% {  
+		box-shadow:
+			#000 30px 45px,
+			#000 40px 60px,
+			#000 50px 90px,
+			#000 55px 65px,
+			rgba(0,0,0,0) 70px 40px,
+			rgba(0,0,0,0) 80px 20px,
+			#000 110px 70px,
+			#000 90px 60px; 
+	}
+	50% { 
+		box-shadow:
+			#000 30px 70px,
+			#000 40px 80px,
+			rgba(0,0,0,0) 50px 100px,
+			#000 55px 80px,
+			#000 70px 60px,
+			#000 80px 45px,
+			#000 110px 95px,
+			#000 90px 85px;
+	}
+	51% {
+		box-shadow:
+			#000 30px 70px,
+			#000 40px 80px,
+			rgba(0,0,0,0) 50px 45px,
+			#000 55px 80px,
+			#000 70px 60px,
+			#000 80px 45px,
+			#000 110px 95px,
+			#000 90px 85px;
+	}
+	75% {
+		box-shadow:
+			#000 30px 95px,
+			#000 40px 100px,
+			#000 50px 60px,
+			rgba(0,0,0,0) 55px 95px,
+			#000 70px 80px,
+			#000 80px 70px,
+			rgba(0,0,0,0) 110px 120px,
+			rgba(0,0,0,0) 90px 110px;
+	}
+	76% {
+		box-shadow:
+			#000 30px 95px,
+			#000 40px 100px,
+			#000 50px 60px,
+			rgba(0,0,0,0) 55px 35px,
+			#000 70px 80px,
+			#000 80px 70px,
+			rgba(0,0,0,0) 110px 25px,
+			rgba(0,0,0,0) 90px 15px;
+	}
+	100% {
+		box-shadow:
+			rgba(0,0,0,0) 30px 120px,
+			rgba(0,0,0,0) 40px 120px,
+			#000 50px 75px,
+			#000 55px 50px,
+			#000 70px 100px,
+			#000 80px 95px,
+			#000 110px 45px,
+			#000 90px 35px;
+	}
+}
+@keyframes rainy_shadow {
+	50% { -webkit-transform: translateY(20px) scale(1); transform: translateY(20px) scale(1); opacity: 0.05; }
 }
