@@ -11,12 +11,15 @@
 
 
 /*转场动画*/
-.part1{
+/*.part1{
 	animation: small .2s ease-in 3s  normal forwards, fadeout-left .4s linear 3.3s normal forwards;
 }
-.part2{
-    animation: fadein-largen .4s ease-in 3.8s forwards ;
-}
+.transfer1_2{
+    animation: fadein-largen .6s ease-in 3.8s forwards,small .2s ease-in 13s  normal forwards, fadeout-left .4s linear 14s normal forwards ;
+}*/
+/*.part2{
+	animation: fadein-largen .6s ease-in 14.6s forwards;
+}*/
 @-webkit-keyframes sun { 
 	0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
 	100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }
@@ -95,7 +98,7 @@
 </head>
 <body>
 <div class="wrapper">
-	<div class="part1" id="part1">
+	<div class="part1 dn" id="part1">
 		<div class="sun"></div>
 		<div class="clouds">
 			<div class="cloud2"></div>
@@ -136,6 +139,7 @@
 		<div class="dialog heDialog dn" id="heDialog"></div>
 		<div id="typewriter" class="typewriter"></div>	
 	</div>
+	<div class="transfer1_2 dn" id="transfer1_2"></div>
 	<div class="part2" id="part2">
 		<div class="monk">
 			<div class="head_div">
@@ -174,6 +178,7 @@
 			</div>
 		</div>
 		<div class="mountain"></div>
+		<div class="rainy"></div>
 		<div class="river"></div>
 	</div>
 </div>
@@ -184,14 +189,16 @@
 	var x = 0;
 	var speed = 170;
 	var flag = true;
-	function typewrite() {
-		var m = words;
-		var typewriter = $_id("typewriter");
+	function typewrite(string, idname) {
+		var m = string;
+		var typewriter = $_id(idname);
 		typewriter.innerHTML = m.substring(0, x++);
 		if(x === m.length + 1){
-			x = m.length;
+			x = 0;
 		}else{
-			timer = setTimeout('typewrite()', speed);
+			setTimeout(function(){
+				typewrite(string, idname);
+			}, speed);
 		}
 	}
 	var dialogWords = ['Hi~早上好','Hi~今天这么早啊','今天练什么拳啦','太极，你们咧','我在撞钟呀，哈哈','...','...'];
@@ -212,24 +219,22 @@
 
 			}
 			dialogX++;
-			setTimeout('showDialog()', 2000);
+			part1_dialog = setTimeout('showDialog()', 2000);
 		}else{
 			heDialog.style.display = 'none';
 			meDialog.style.display = 'none';
+			clearTimeout(part1_dialog);
 		}
 	}
-	setTimeout('showDialog()', 13600);
-	var part2_words = "五年来，风雨无阻，我们总会在挑水时，天南地北地聊着，可是，突然有一天..."
+	// var part1_dialog = setTimeout('showDialog()', 13600);
+	// var part1_word = setTimeout('typewrite(words, "typewriter")', 2000);
+
+	var part2_string = "五年来，风雨无阻，我们总会在挑水时，天南地北地聊着，可是，突然有一天...";
+	var part2_word = setTimeout('typewrite(part2_string, "transfer1_2")', 5000);
 	function $_id(id){
 		return document.getElementById(id);
 	}
-	setTimeout('typewrite()', 2000);
-
-	// function showPart2(){
-	// 	$_id('part1').style.display = 'none';
-	// 	$_id('part2').style.display = 'block';
-	// }
-	// setTimeout('showPart2()', 30000)
+	
 	</script>
 
 </body>
