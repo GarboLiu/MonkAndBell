@@ -27,13 +27,13 @@
 		left: 2.5em;
 		width: .8em;
 		height: 6.5em;
-		background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
 	}
 	.sun::before{
 		content: '';
 		width: .8em;
 		height: 6.5em;
-		background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+		background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
 		transform: rotate(90deg);
 		position: absolute;
 		top: 0;

@@ -167,8 +167,8 @@
 .sunny { 
     /*animation: sunny 15s linear infinite;*/
 	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(50%, rgba(255,255,255,0.8)), to(rgba(255,255,255,0)));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-	background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
+	background: -webkit-linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%); 
 	height: 9em;
 	width: 1.3em; 
 	position: absolute;
@@ -178,8 +178,8 @@
 }
 .sunny:before {
 	background: -webkit-gradient(linear, left top, left bottom, from(rgba(255,255,255,0)), color-stop(50%, rgba(255,255,255,0.8)), to(rgba(255,255,255,0)));
-	background: -webkit-linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
-	background: linear-gradient(top, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+	background: -webkit-linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+	background: linear-gradient(rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
 	content: ''; 
 	height: 9em;
 	width: 1.3em;

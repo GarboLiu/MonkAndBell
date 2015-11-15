@@ -30,12 +30,53 @@ var dataloop = function(css) {
         });
         rule.append({
             prop: 'border-bottom',
-            value: '1px solid ' + borderBottom + ";"
+            value: '1px solid ' + borderBottom + ';'
         });
         css.append(rule);
     }
 };
+var rainy = function(addRainyStyle){
+    var arr = ['0%', '25%', '26%', '50%', '51%', '75%', '76%', '100%'];
+    var rule = corepostcss.rule({
+        selector: '@keyframes rainy_rain'
+    });
+    var xArr = ['.7em', '1.4em', '2.4em', '2.65em', '3em', '4.4em', '5.3em', '6em'];
+    var yArr = [.3, .4, .75, .5, .1, .95, .45, .35];
+    var yArrTem = [.3, .4, .75, .5, .1, .95, .45, .35];
+    for(var i=0, len=arr.length; i<len; i++){
+        var rule2 = corepostcss.rule({
+            selector: arr[i]
+        });
+        var val = '';
 
+        for(var j=0, len=xArr.length; j<len; j++){
+            if(i === 2  || i===6){
+                yArrTem[j] < 10 ? yArrTem[j] = yArrTem[j] : yArrTem[j] = yArr[j];
+            }else{
+                yArrTem[j] < 10 ? yArrTem[j] += Math.ceil(Math.random()*2)+1.5 :yArrTem[j] = yArr[j];
+            }
+            val += '#000 '+xArr[j]+' '+yArrTem[j]+'em';
+            j < len-1 ? val+= ',': val+= ';'; 
+        }
+        rule2.append({
+            prop: 'box-shadow',
+            value:  val
+        });
+        rule.append(rule2);
+
+    }
+    addRainyStyle.append(rule);
+}
+
+function addRainyStyle(){
+    var processors = [
+        rainy
+    ];
+    return gulp.src('./preCss/output.css')
+        .pipe(postcss(processors))
+        .pipe(gulp.dest('./css'));
+}
+gulp.task(addRainyStyle);
 function css() {
     var processors = [
         autoprefixer({
@@ -43,11 +84,9 @@ function css() {
         }),
         mixins,//Note, that you must set this plugin before postcss-simple-vars and postcss-nested.
         nestedcss,
-        simplevars
-
         // dataloop,
-        // oldie
-
+        // oldie,
+        simplevars
     ];
     return gulp.src('./preCss/*.css')
         .pipe(postcss(processors))
@@ -57,13 +96,13 @@ gulp.task(css);
 
 // Static server
 function browsersync() {
-    gulp.watch("preCss/*.css", gulp.series(
+    gulp.watch('preCss/*.css', gulp.series(
         css, browserSync.reload
         ));
     gulp.watch('*.html', browserSync.reload);
     browserSync({
         server: {
-            baseDir: "./"
+            baseDir: './'
         }
     });
 
